@@ -6,6 +6,8 @@ A Unity editor extension that replaces all transform animation properties within
 
 While transform animations can mostly be emulated with constraint offset animations, this script only handles replacing the properties of animation clips and does not create the constraint components on your animated gameobjects in your hierarchy.
 
+######
+
 ![](https://github.com/JustSleightly/TransformConverter/raw/main/Examples/Demo.gif)
 
 ## Constraint Setup

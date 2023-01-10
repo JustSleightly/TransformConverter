@@ -1,4 +1,4 @@
-#if UNITY_EDITOR
+﻿#if UNITY_EDITOR
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
@@ -121,7 +121,7 @@ namespace JustSleightly
                     {
                         var hasPosition = false;
                         var hasRotation = false;
-                        var hasScale = false;
+                        //var hasScale = false;
 
                         foreach (var binding in kvp.Value)
                         {
@@ -129,15 +129,15 @@ namespace JustSleightly
 
                             if (binding.propertyName.StartsWith("localEulerAnglesRaw.")) hasRotation = true;
 
-                            if (binding.propertyName.StartsWith("m_LocalScale.")) hasScale = true;
+                            //if (binding.propertyName.StartsWith("m_LocalScale.")) hasScale = true;
                         }
 
                         if (hasPosition)
                             GUILayout.Label("Position", GUILayout.ExpandWidth(false));
                         if (hasRotation)
                             GUILayout.Label("Rotation", GUILayout.ExpandWidth(false));
-                        if (hasScale)
-                            GUILayout.Label("Scale", GUILayout.ExpandWidth(false));
+                        //if (hasScale)
+                        //    GUILayout.Label("Scale", GUILayout.ExpandWidth(false));
                     }
 
                     GUILayout.FlexibleSpace();
@@ -159,7 +159,7 @@ namespace JustSleightly
             {
                 var key = curveData.path;
 
-                if (curveData.propertyName.StartsWith("m_LocalPosition.") || curveData.propertyName.StartsWith("localEulerAnglesRaw.") || curveData.propertyName.StartsWith("m_LocalScale."))
+                if (curveData.propertyName.StartsWith("m_LocalPosition.") || curveData.propertyName.StartsWith("localEulerAnglesRaw.") /*|| curveData.propertyName.StartsWith("m_LocalScale.")*/)
                 {
                     if (transformProperties.ContainsKey(key))
                         transformProperties[key].Add(curveData);
@@ -202,10 +202,10 @@ namespace JustSleightly
                             else
                                 newBinding = new EditorCurveBinding { path = curve.path, propertyName = oldBinding.propertyName.Replace("localEulerAnglesRaw.", "m_RotationOffset."), type = typeof(RotationConstraint) };
                         }
-                        else if (oldBinding.propertyName.StartsWith("m_LocalScale."))
-                        {
-                            newBinding = new EditorCurveBinding { path = curve.path, propertyName = oldBinding.propertyName.Replace("m_LocalScale.", "m_ScaleOffset."), type = typeof(ScaleConstraint) };
-                        }
+                        //else if (oldBinding.propertyName.StartsWith("m_LocalScale."))
+                        //{
+                        //    newBinding = new EditorCurveBinding { path = curve.path, propertyName = oldBinding.propertyName.Replace("m_LocalScale.", "m_ScaleOffset."), type = typeof(ScaleConstraint) };
+                        //}
                         else
                         {
                             continue;

@@ -6,6 +6,8 @@ A Unity editor extension that replaces all transform animation properties within
 
 While transform animations can mostly be emulated with constraint offset animations, this script only handles replacing the properties of animation clips and does not create the constraint components on your animated gameobjects in your hierarchy.
 
+**Scale Transform Animations do not convert nicely so they have been removed from functionality until a better solution is implemented.**
+
 ######
 
 ![](https://github.com/JustSleightly/TransformConverter/raw/main/Examples/Demo.gif)
@@ -16,7 +18,8 @@ For any gameobject that you would normally animate transforms for, add a constra
 
 For each constraint, you will typically set the constraint settings so that the `At Rest` and `Offset` values match your default transform values for that transform property. 
 
-For each constraint source, you will typically set the immediate parent gameobject from the hierarchy as the only source, with the exception of _**Scale Constraints**_ which should use a *WorldTransform* prefab of *(1,1,1)* scale instead. This prefab should not exist in your hierarchy/scene and only exist in your project assets instead so as to maintain absolute values. Note that the actual transform value of your scale may deviate from your animated offset when not a power of 2.
+For each constraint source, you will typically set the immediate parent gameobject from the hierarchy as the only source. ~~with the exception of _**Scale Constraints**_ which should use a *WorldTransform* prefab of *(1,1,1)* scale instead. This prefab should not exist in your hierarchy/scene and only exist in your project assets instead so as to maintain absolute values. Note that the actual transform value of your scale may deviate from your animated offset when not a power of 2.~~
+
 
 An example prefab can be found in the [examples](https://github.com/JustSleightly/TransformConverter/tree/main/Examples) folder.
 
@@ -47,18 +50,6 @@ An example prefab can be found in the [examples](https://github.com/JustSleightl
 
 <details> 
 
-  <summary> Scale Constraint Example </summary>
-
-######
-
-<blockquote>
-
-![](https://github.com/JustSleightly/TransformConverter/raw/main/Examples/ScaleConstraint.png)
-
-</details>
-
-<details> 
-
   <summary> Parent Constraint Example </summary>
 
 ######
@@ -66,5 +57,17 @@ An example prefab can be found in the [examples](https://github.com/JustSleightl
 <blockquote>
 
 ![](https://github.com/JustSleightly/TransformConverter/raw/main/Examples/ParentConstraint.png)
+
+</details>
+
+<details> 
+
+  <summary> <s> Scale Constraint Example </s> </summary>
+
+######
+
+<blockquote>
+
+![](https://github.com/JustSleightly/TransformConverter/raw/main/Examples/ScaleConstraint.png)
 
 </details>

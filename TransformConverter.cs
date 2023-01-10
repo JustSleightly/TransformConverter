@@ -1,4 +1,4 @@
-﻿#if UNITY_EDITOR
+#if UNITY_EDITOR
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
@@ -208,7 +208,6 @@ namespace JustSleightly
                         }
                         else
                         {
-                            Debug.Log("Skip");
                             continue;
                         }
 
@@ -226,7 +225,7 @@ namespace JustSleightly
                 EditorUtility.ClearProgressBar();
             }
 
-            Debug.Log("<color=yellow>[TransformConverter]</color> Converted " + propertiesEdited + " properties across " + animationClips.Length + "clip" + (animationClips.Length > 1 ? "s" : string.Empty));
+            Debug.Log("<color=yellow>[TransformConverter]</color> Converted " + propertiesEdited + " properties across " + animationClips.Length + " clip" + (animationClips.Length > 1 ? "s" : string.Empty));
 
             FillModel();
             Repaint();

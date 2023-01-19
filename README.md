@@ -8,6 +8,10 @@ While transform animations can mostly be emulated with constraint offset animati
 
 **Scale Transform Animations do not convert nicely so they have been removed from functionality until a better solution is implemented.**
 
+---
+### **[Download Here!](https://github.com/JustSleightly/TransformConverter/releases)**
+---
+
 ######
 
 ![](https://github.com/JustSleightly/TransformConverter/raw/main/Examples/Demo.gif)
